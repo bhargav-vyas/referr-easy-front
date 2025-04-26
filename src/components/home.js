@@ -5,8 +5,10 @@ function Home(){
         <div>
 
           <h1> Welcome to referrEasy</h1>
-          <Link></Link>
+          <Link to="./Register.js"></Link> 
+          <Link to ="./Login.js"></Link>
         </div>
-    )
+    );
 
 }
+export default Home;
