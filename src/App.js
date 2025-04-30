@@ -1,8 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-import Home from './components/home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import ReferralForm from './pages/ReferralForm';
+import Dashboard from './pages/Dashboard';
+
 function App() {
-  return (<div></div>
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/referral" element={<ReferralForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
