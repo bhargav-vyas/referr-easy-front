@@ -1,9 +1,10 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import ReferralForm from './pages/ReferralForm';
-import Dashboard from './pages/Dashboard';
+import Home from './components/home';
+import Register from './components/Register';
+import Login from './components/Login';
+import ReferralForm from './components/ReferralForm';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
