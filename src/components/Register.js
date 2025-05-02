@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Register.css';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -27,18 +28,18 @@ function Register() {
       alert('Registration failed');
     }
   };
+return (
+  <div className="register-container">
+    <h2>Register</h2>
+    <form onSubmit={handleSubmit}>
+      <input name="name" type="text" placeholder="Name" onChange={handleChange} required />
+      <input name="email" type="email" placeholder="Email" onChange={handleChange} required />
+      <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+      <button type="submit">Register</button>
+    </form>
+  </div>
+);
 
-  return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="name" type="text" placeholder="Name" onChange={handleChange} required /><br />
-        <input name="email" type="email" placeholder="Email" onChange={handleChange} required /><br />
-        <input name="password" type="password" placeholder="Password" onChange={handleChange} required /><br />
-        <button type="submit">Register</button>
-      </form>
-    </div>
-  );
 }
 
 export default Register;
