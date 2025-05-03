@@ -1,31 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './home.css';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Home() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    axios.get('http://localhost:8080/api/home/message')
-      .then(response => {
-        setMessage(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching home message:', error);
-        setMessage('Failed to load welcome message.');
-      });
-  }, []);
+const HomePage = () => {
+  const navigate = useNavigate();
 
   return (
-    <div className="home-container">
-      <h1 className="home-title">ReferrEasy</h1>
-      <p className="home-message">{message}</p>
-      <div className="home-buttons">
-        <a href="/register" className="home-btn">Register</a>
-        <a href="/login" className="home-btn">Login</a>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <h1 className="text-4xl font-bold mb-8">Welcome to Our Application</h1>
+      <div className="space-x-4">
+        <button
+          onClick={() => navigate('/login')}
+          className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+        >
+          Login
+        </button>
+        <button
+          onClick={() => navigate('/register')}
+          className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-700"
+        >
+          Register
+        </button>
       </div>
     </div>
   );
-}
+};
 
-export default Home;
+export default HomePage;
