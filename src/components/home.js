@@ -7,17 +7,23 @@ const HomePage = () => {
 
   return (
     <div className="homepage-container">
-      <h1 className="homepage-title">Welcome to Our Referral Application</h1>
-      <div className="button-group">
-        <button onClick={() => navigate('/login')} className="custom-button login-button">
-          Login
-        </button>
-        <button onClick={() => navigate('/register')} className="custom-button register-button">
-          Register
-        </button>
-        <button onClick={() => navigate('/info')} className="custom-button info-button">
-          App Info
-        </button>
+      {/* Top Navigation Bar */}
+      <nav className="navbar">
+        <h2 className="navbar-title">Referral App</h2>
+        <div className="nav-links">
+          <button onClick={() => navigate('/')} className="nav-button">Home</button>
+          <button onClick={() => navigate('/login')} className="nav-button">Login</button>
+          <button onClick={() => navigate('/register')} className="nav-button">Register</button>
+          <button onClick={() => navigate('/info')} className="nav-button">App Info</button>
+        </div>
+      </nav>
+
+      {/* Welcome Message */}
+      <div className="homepage-content">
+        <h1 className="homepage-title">Welcome to Our Referral Application</h1>
+        <p className="homepage-description">
+          Get referred by professionals working in top MNCs. Register and connect now!
+        </p>
       </div>
     </div>
   );

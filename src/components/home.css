@@ -1,58 +1,53 @@
-/* Main container */
+/* home.css */
+
 .homepage-container {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #1e1e2f;
+  color: white;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background: linear-gradient(to right, #e0f7fa, #fff); /* Subtle gradient */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 15px 25px;
 }
 
-/* Title styling */
-.homepage-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 40px;
+.navbar-title {
+  margin: 0;
+  font-size: 22px;
 }
 
-/* Button group layout */
-.button-group {
+.nav-links {
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 
-/* Shared button styling */
-.custom-button {
-  padding: 12px 30px;
-  font-size: 1.1rem;
+.nav-button {
+  background: none;
   border: none;
-  border-radius: 8px;
+  color: white;
+  font-size: 16px;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px 12px;
+  border-radius: 4px;
 }
 
-/* Login button */
-.login-button {
-  background-color: #007bff;
-  color: white;
+.nav-button:hover {
+  background-color: #3a3a50;
 }
 
-.login-button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+.homepage-content {
+  text-align: center;
+  margin-top: 100px;
 }
 
-/* Register button */
-.register-button {
-  background-color: #28a745;
-  color: white;
+.homepage-title {
+  font-size: 32px;
+  color: #333;
 }
 
-.register-button:hover {
-  background-color: #1c7c34;
-  transform: scale(1.05);
+.homepage-description {
+  font-size: 18px;
+  color: #666;
 }
