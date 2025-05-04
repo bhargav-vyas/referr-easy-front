@@ -1,13 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './home.css'; // Link to external CSS
+import './home.css';
 
 const HomePage = () => {
   const navigate = useNavigate();
 
   return (
     <div className="homepage-container">
-      {/* Top Navigation Bar */}
       <nav className="navbar">
         <h2 className="navbar-title">Referral App</h2>
         <div className="nav-links">
@@ -18,12 +17,18 @@ const HomePage = () => {
         </div>
       </nav>
 
-      {/* Welcome Message */}
       <div className="homepage-content">
-        <h1 className="homepage-title">Welcome to Our Referral Application</h1>
+        <h1 className="homepage-title">Get Referred to MNCs</h1>
         <p className="homepage-description">
-          Get referred by professionals working in top MNCs. Register and connect now!
+          Join our network and connect with professionals who can refer you to top companies.
         </p>
+
+        {/* Animated image */}
+        <img
+          src="/assets/referral.gif"
+          alt="Referral Animation"
+          className="referral-animation"
+        />
       </div>
     </div>
   );
