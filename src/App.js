@@ -5,8 +5,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import ReferralForm from './components/ReferralForm';
 import Dashboard from './components/Dashboard';
-
-
+import AppInfo from './components/AppInfo'; // ✅ Make sure this path is correct
 
 function App() {
   return (
@@ -17,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/referral" element={<ReferralForm />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/info" element={<AppInfo />} /> {/* ✅ Added this line */}
       </Routes>
     </Router>
   );
