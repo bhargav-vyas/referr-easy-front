@@ -23,10 +23,10 @@ const HomePage = () => {
           Join our network and connect with professionals who can refer you to top companies.
         </p>
 
-        {/* Animated image */}
+        {/* Placeholder image from Unsplash */}
         <img
-          src="/assets/referral.gif"
-          alt="Referral Animation"
+          src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1000&q=80"
+          alt="Referral Visual"
           className="referral-animation"
         />
       </div>
