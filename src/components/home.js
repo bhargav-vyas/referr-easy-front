@@ -29,7 +29,12 @@ const HomePage = () => {
           alt="Referral Visual"
           className="referral-animation"
         />
+        <div className="animated-text">
+    <h1>Start Your Referral Journey Today</h1>
+    <p>Connect with top professionals and unlock career opportunities</p>
+  </div>
       </div>
+      
     </div>
   );
 };
