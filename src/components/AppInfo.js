@@ -1,9 +1,9 @@
-// AppInfo.js
 import React from 'react';
+import './AppInfo.css';
 
 const AppInfo = () => {
   return (
-    <div style={{ padding: '20px', backgroundColor: '#e6f2ff', borderRadius: '10px', marginTop: '20px' }}>
+    <div className="app-info-container">
       <h2>About the Referral Application</h2>
       <p>
         Welcome to the <strong>Referral Application</strong> — a platform designed to connect job seekers with 

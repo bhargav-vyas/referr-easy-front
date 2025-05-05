@@ -14,16 +14,14 @@ function Login() {
       ...credentials,
       [e.target.name]: e.target.value
     });
-    setError(''); // Clear error when user types
+    setError('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await axios.post('http://localhost:8080/api/users/login', credentials);
       console.log('Login successful:', response.data);
-      // Store token or redirect here
     } catch (error) {
       console.error('Login failed:', error);
       setError(error.response?.data?.message || 'Login failed. Please try again.');
@@ -31,31 +29,33 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
-      <h2>Welcome Back</h2>
-      {error && <div className="error-message">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <input
-          name="username"
-          type="text"
-          placeholder="Username"
-          value={credentials.username}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={credentials.password}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p className="login-link">
-        Don't have an account? <a href="/signup">Sign up</a>
-      </p>
+    <div className="laptop-wrapper">
+      <div className="laptop-screen">
+        <h2>Welcome Back</h2>
+        {error && <div className="error-message">{error}</div>}
+        <form onSubmit={handleSubmit}>
+          <input
+            name="username"
+            type="text"
+            placeholder="Username"
+            value={credentials.username}
+            onChange={handleChange}
+            required
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={credentials.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+        <p className="login-link">
+          Don't have an account? <a href="/signup">Sign up</a>
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,63 +1,65 @@
-.image-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 50px auto;
+.login-container {
+  width: 350px;
+  padding: 2rem;
+  margin: 100px auto;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  transform: rotateX(8deg);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-.referral-animation {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  display: block;
+.login-container:hover {
+  transform: rotateX(0deg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
 }
 
-.overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
+.login-container h2 {
   text-align: center;
-  padding: 20px;
-  backdrop-filter: blur(6px);
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 12px;
-  animation: fadeInUp 1.5s ease-out;
-  width: 90%;
+  margin-bottom: 1.5rem;
 }
 
-.animated-title {
-  font-size: 32px;
-  margin-bottom: 10px;
-  animation: slideIn 1s ease-out;
+form {
+  display: flex;
+  flex-direction: column;
 }
 
-.animated-description {
-  font-size: 18px;
-  animation: slideIn 1.5s ease-out;
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  background: #eee;
+  color: #000;
 }
 
-/* Keyframes for animation */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+button {
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -60%);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
+button:hover {
+  background-color: #2980b9;
+}
+
+.login-link {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.login-link a {
+  color: #2ecc71;
+  text-decoration: none;
+}
+
+.error-message {
+  color: #e74c3c;
+  text-align: center;
+  margin-bottom: 1rem;
 }
