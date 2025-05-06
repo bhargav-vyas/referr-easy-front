@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Register.css';
+import './SignUp.css'; // Make sure you create this CSS file or rename your existing Register.css
 
-function Register() {
+function SignUp() {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -30,18 +30,18 @@ function Register() {
 
     try {
       const response = await axios.post('http://localhost:8080/api/users/resister', userPayload);
-      console.log('User registered:', response.data);
-      setMessage('Registered successfully!');
+      console.log('User signed up:', response.data);
+      setMessage('Sign-up successful!');
       setFormData({ username: '', email: '', password: '' });
     } catch (error) {
-      console.error('Registration error:', error);
-      setError(error.response?.data?.message || 'Registration failed');
+      console.error('Sign-up error:', error);
+      setError(error.response?.data?.message || 'Sign-up failed');
     }
   };
 
   return (
-    <div className="register-container">
-      <h2>Create Account</h2>
+    <div className="signup-container">
+      <h2>Sign Up</h2>
       {message && <div className="success-message">{message}</div>}
       {error && <div className="error-message">{error}</div>}
       <form onSubmit={handleSubmit}>
@@ -77,4 +77,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default SignUp;
