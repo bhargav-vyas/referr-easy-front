@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // ✅ Step 1: Import navigate
 import './Login.css';
 
 function Login() {
@@ -8,6 +9,7 @@ function Login() {
     password: ''
   });
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // ✅ Step 2: Initialize
 
   const handleChange = (e) => {
     setCredentials({
@@ -22,6 +24,7 @@ function Login() {
     try {
       const response = await axios.post('http://localhost:8080/api/users/login', credentials);
       console.log('Login successful:', response.data);
+      navigate('/dash'); // ✅ Step 3: Redirect on success
     } catch (error) {
       console.error('Login failed:', error);
       setError(error.response?.data?.message || 'Login failed. Please try again.');
