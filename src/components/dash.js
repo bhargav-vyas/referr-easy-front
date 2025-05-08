@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 🔑 Import useNavigate
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import './Dash.css';
 
 function Dash() {
   const [jobs, setJobs] = useState([]);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // 🧭 Hook for navigation
 
   useEffect(() => {
     fetchJobs();
@@ -20,13 +20,24 @@ function Dash() {
     }
   };
 
+  // 🔐 Sign Out function
+  const handleSignOut = () => {
+    // Optional: Clear tokens or session storage here
+    navigate('/login'); // Redirect to login page
+  };
+
+  const goToJobPost = () => {
+    navigate('/jobpost');
+  };
+
   return (
     <div className="dash-container">
       <header className="header">
         <h1>Available Jobs</h1>
-        <button className="post-job-btn" onClick={() => navigate('/post-job')}>
-          Post a Job
-        </button>
+        <div className="button-group">
+          <button className="post-job-btn" onClick={goToJobPost}>Post Job</button>
+          <button className="sign-out-btn" onClick={handleSignOut}>Sign Out</button>
+        </div>
       </header>
       <main className="content">
         <div className="job-list">
