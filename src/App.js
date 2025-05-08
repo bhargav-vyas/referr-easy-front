@@ -5,9 +5,11 @@ import Register from './components/Register';
 import Login from './components/Login';
 import ReferralForm from './components/ReferralForm';
 import Dashboard from './components/Dashboard';
-import AppInfo from './components/AppInfo'; // ✅ Make sure this path is correct
+import AppInfo from './components/AppInfo';
 import SignUp from './components/Signup';
-import Dash from './components/Dash'
+import Dash from './components/Dash';
+import PostJob from'./components/PostJobs';; // ✅ Import the PostJob component
+
 function App() {
   return (
     <Router>
@@ -17,9 +19,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/referral" element={<ReferralForm />} />
         <Route path="/dashboard" element={<Dashboard />} />
-       <Route path='/Dash' element={<Dash/>}/>
-       <Route path="/signup" element={<SignUp />} /> {/* ✅ Added this line */}
-        <Route path="/info" element={<AppInfo />} /> {/* ✅ Added this line */}
+        <Route path="/Dash" element={<Dash />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/info" element={<AppInfo />} />
+        <Route path="/post-job" element={<PostJob />} /> {/* ✅ Added PostJob route */}
       </Routes>
     </Router>
   );
