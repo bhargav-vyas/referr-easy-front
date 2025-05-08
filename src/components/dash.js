@@ -50,9 +50,13 @@ function Dash() {
 
   return (
     <div className="dash-container">
-      {/* Header */}
+      {/* Header with top-right options */}
       <header className="header">
         <h1>Job Referral Portal</h1>
+        <div className="header-options">
+          <button onClick={() => setActiveTab('applyJob')}>Post Job</button>
+          <button onClick={() => alert('Signed out!')}>Sign Out</button>
+        </div>
       </header>
 
       {/* Navigation */}
@@ -96,10 +100,49 @@ function Dash() {
         {activeTab === 'referCandidate' && (
           <div className="form-section">
             <h2>Refer a Friend</h2>
+
+            <div className="job-list-referral">
+              <h3>Jobs Available for Referral</h3>
+              {jobs.filter(job => job.isReferralOpen).length > 0 ? (
+                <ul>
+                  {jobs.filter(job => job.isReferralOpen).map((job) => (
+                    <li key={job.id}>
+                      <strong>{job.title}</strong> at {job.company} – {job.location}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No jobs currently open for referral.</p>
+              )}
+            </div>
+
             <form onSubmit={handleReferralSubmit}>
-              <input type="text" placeholder="Name" value={referral.name} onChange={(e) => setReferral({ ...referral, name: e.target.value })} required />
-              <input type="email" placeholder="Email" value={referral.email} onChange={(e) => setReferral({ ...referral, email: e.target.value })} required />
-              <input type="text" placeholder="Referred Position" value={referral.referredPosition} onChange={(e) => setReferral({ ...referral, referredPosition: e.target.value })} required />
+              <input
+                type="text"
+                placeholder="Candidate Name"
+                value={referral.name}
+                onChange={(e) => setReferral({ ...referral, name: e.target.value })}
+                required
+              />
+              <input
+                type="email"
+                placeholder="Candidate Email"
+                value={referral.email}
+                onChange={(e) => setReferral({ ...referral, email: e.target.value })}
+                required
+              />
+              <select
+                value={referral.referredPosition}
+                onChange={(e) => setReferral({ ...referral, referredPosition: e.target.value })}
+                required
+              >
+                <option value="">Select Position</option>
+                {jobs.filter(job => job.isReferralOpen).map((job) => (
+                  <option key={job.id} value={job.title}>
+                    {job.title} – {job.company}
+                  </option>
+                ))}
+              </select>
               <button type="submit">Submit Referral</button>
             </form>
           </div>
