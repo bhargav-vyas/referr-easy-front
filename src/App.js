@@ -8,7 +8,9 @@ import Dashboard from './components/Dashboard';
 import AppInfo from './components/AppInfo';
 import SignUp from './components/Signup';
 import Dash from './components/Dash';
-import PostJob from'./components/PostJobs';; // ✅ Import the PostJob component
+import PostJobForm from './components/PostJobForm';
+
+
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
         <Route path="/Dash" element={<Dash />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/info" element={<AppInfo />} />
-        <Route path="/post-job" element={<PostJob />} /> {/* ✅ Added PostJob route */}
+        <Route path="/post-job" element={<PostJobForm />} />
+        <Route path="/post-job" element={<PostJobForm />} />
       </Routes>
     </Router>
   );
