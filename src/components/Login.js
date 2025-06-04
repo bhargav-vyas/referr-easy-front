@@ -1,64 +1,52 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // ✅ Step 1: Import navigate
-import './Login.css';
+import React, { useState } from "react";
+import axios from "axios";
+import "./Login.css";
 
 function Login() {
-  const [credentials, setCredentials] = useState({
-    username: '',
-    password: ''
-  });
-  const [error, setError] = useState('');
-  const navigate = useNavigate(); // ✅ Step 2: Initialize
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleChange = (e) => {
-    setCredentials({
-      ...credentials,
-      [e.target.name]: e.target.value
-    });
-    setError('');
-  };
-
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/users/login', credentials);
-      console.log('Login successful:', response.data);
-      navigate('/dash'); // ✅ Step 3: Redirect on success
+      const response = await axios.post("http://localhost:8080/api/login", {
+        email,
+        password
+      });
+
+      if (response.status === 200) {
+        setMessage("Login successful!");
+        // You can redirect or store token if required
+        // localStorage.setItem("token", response.data.token);
+      }
     } catch (error) {
-      console.error('Login failed:', error);
-      setError(error.response?.data?.message || 'Login failed. Please try again.');
+      console.error("Login failed", error);
+      setMessage("Login failed. Please check your credentials.");
     }
   };
 
   return (
-    <div className="laptop-wrapper">
-      <div className="laptop-screen">
-        <h2>Welcome Back</h2>
-        {error && <div className="error-message">{error}</div>}
-        <form onSubmit={handleSubmit}>
-          <input
-            name="username"
-            type="text"
-            placeholder="Username"
-            value={credentials.username}
-            onChange={handleChange}
-            required
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={credentials.password}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
-        <p className="login-link">
-          Don't have an account? <a href="/signup">Sign up</a>
-        </p>
-      </div>
+    <div className="login-container">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        /><br />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        /><br />
+        <button type="submit">Login</button>
+      </form>
+      <p>{message}</p>
     </div>
   );
 }
